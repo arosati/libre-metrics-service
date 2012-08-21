@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<clay-model clay-version="2.0.0">
+<database-model author="" begin-script="" end-script="" id="1c73472:12a0fac3d52:-8000" name="metrics" sql-dialect-id="jp.azzurri.clay.dialect.Postgre_7_3_Dialect" version="1.0">
+<schema-list>
+<schema alias="Public" id="1c73472:12a0fac3d52:-7ffd" name="public">
+<table-list>
+<table alias="Metric" id="1c73472:12a0fac3d52:-7fff" name="metric">
+<column-list>
+<column alias="Id" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1c73472:12a0fac3d52:-7ff2" mandatory="true" name="id">
+<data-type name="SERIAL" selected-variant-pattern="SERIAL"/>
+</column>
+<column alias="Name" auto-increment="false" column-size="128" decimal-digits="0" default-value="" id="1c73472:12a0fac3d52:-7ff6" mandatory="false" name="name">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column alias="Value" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1c73472:12a0fac3d52:-7ff5" mandatory="false" name="value">
+<data-type name="TEXT" selected-variant-pattern="TEXT"/>
+</column>
+<column alias="Public" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="aa2594:12a3965cd54:-7fe3" mandatory="false" name="public">
+<data-type name="BOOLEAN" selected-variant-pattern="BOOLEAN"/>
+</column>
+</column-list>
+<primary-key id="1c73472:12a0fac3d52:-7ffe" name="PK_METRIC">
+<primary-key-column name="id"/>
+</primary-key>
+</table>
+<table alias="Agent" id="1c118ae:12a0fb40ae7:-7ff9" name="agent">
+<column-list>
+<column alias="Id" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1c118ae:12a0fb40ae7:-7ff5" mandatory="true" name="id">
+<data-type name="SERIAL" selected-variant-pattern="SERIAL"/>
+</column>
+<column alias="User Agent" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1c118ae:12a0fb40ae7:-7ff4" mandatory="false" name="user_agent">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR"/>
+</column>
+<column alias="Ip Address" auto-increment="false" column-size="15" decimal-digits="0" default-value="" id="1c118ae:12a0fb40ae7:-7ff3" mandatory="false" name="ip_address">
+<data-type name="CHAR" selected-variant-pattern="CHAR(%n)"/>
+</column>
+<column alias="Session Id" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1c118ae:12a0fb40ae7:-7ff2" mandatory="false" name="session_id">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR"/>
+</column>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1c118ae:12a0fb40ae7:-7fed" mandatory="false" name="host">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR"/>
+</column>
+</column-list>
+<primary-key id="1c118ae:12a0fb40ae7:-7ff8" name="PK_AGENT">
+<primary-key-column name="id"/>
+</primary-key>
+</table>
+<table alias="Sample" id="1c118ae:12a0fb40ae7:-7fec" name="sample">
+<column-list>
+<column alias="Id" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1c118ae:12a0fb40ae7:-7fe8" mandatory="true" name="id">
+<data-type name="SERIAL" selected-variant-pattern="SERIAL"/>
+</column>
+<column alias="Agent Id" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1c118ae:12a0fb40ae7:-7f3d" mandatory="false" name="agent_id">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="60edad:12a347962fd:-7fde" mandatory="false" name="service_id">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column alias="Entry Ts" auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1c118ae:12a0fb40ae7:-7fe7" mandatory="false" name="entry_ts">
+<data-type name="TIMESTAMP" selected-variant-pattern="TIMESTAMP WITH TIME ZONE"/>
+</column>
+</column-list>
+<primary-key id="1c118ae:12a0fb40ae7:-7feb" name="PK_SAMPLE">
+<primary-key-column name="id"/>
+</primary-key>
+<foreign-key-list>
+<foreign-key id="60edad:12a347962fd:-7f40" name="FK_service_id" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_SERVICE" referenced-table="service" referenced-table-schema="public" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="service_id" referenced-key-column-name="id"/>
+</foreign-key>
+<foreign-key id="1c118ae:12a0fb40ae7:-7f18" name="FK_agent_id" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_AGENT" referenced-table="agent" referenced-table-schema="public" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="agent_id" referenced-key-column-name="id"/>
+</foreign-key>
+</foreign-key-list>
+</table>
+<table alias="Sample Metric" id="1c118ae:12a0fb40ae7:-7f47" name="sample_metric">
+<column-list>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1c118ae:12a0fb40ae7:-7f43" mandatory="true" name="sample_id">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1c118ae:12a0fb40ae7:-7f42" mandatory="true" name="metric_id">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+</column-list>
+<primary-key id="1c118ae:12a0fb40ae7:-7f46" name="PK_SAMPLE_METRIC">
+<primary-key-column name="sample_id"/>
+<primary-key-column name="metric_id"/>
+</primary-key>
+<foreign-key-list>
+<foreign-key id="1c118ae:12a0fb40ae7:-7dd7" name="FK_sample_id" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_SAMPLE" referenced-table="sample" referenced-table-schema="public" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1..*" target-relationship-type="">
+<foreign-key-column column-name="sample_id" referenced-key-column-name="id"/>
+</foreign-key>
+<foreign-key id="1c118ae:12a0fb40ae7:-7da7" name="FK_metric_id" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_METRIC" referenced-table="metric" referenced-table-schema="public" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1..*" target-relationship-type="">
+<foreign-key-column column-name="metric_id" referenced-key-column-name="id"/>
+</foreign-key>
+</foreign-key-list>
+</table>
+<table id="60edad:12a347962fd:-7fec" name="service">
+<column-list>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="60edad:12a347962fd:-7fe1" mandatory="true" name="id">
+<data-type name="SERIAL" selected-variant-pattern="SERIAL"/>
+</column>
+<column auto-increment="false" column-size="45" decimal-digits="0" default-value="" id="60edad:12a347962fd:-7fe8" mandatory="false" name="service">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column auto-increment="false" column-size="80" decimal-digits="0" default-value="" id="60edad:12a347962fd:-7fe7" mandatory="false" name="instance">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column auto-increment="false" column-size="80" decimal-digits="0" default-value="" id="60edad:12a347962fd:-7fe4" mandatory="false" name="sponsor">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+</column-list>
+<primary-key id="60edad:12a347962fd:-7feb" name="PK_SERVICE">
+<primary-key-column name="id"/>
+</primary-key>
+<unique-key-list>
+<unique-key id="1010435:12a3e96ce28:-7fce" name="UQ_service_1">
+<unique-key-column name="service"/>
+<unique-key-column name="instance"/>
+<unique-key-column name="sponsor"/>
+</unique-key>
+</unique-key-list>
+</table>
+</table-list>
+</schema>
+</schema-list>
+</database-model>
+<diagram>
+<table-figure refid="1c73472:12a0fac3d52:-7fff" x="419" y="215"/>
+<table-figure refid="1c118ae:12a0fb40ae7:-7ff9" x="48" y="36"/>
+<table-figure refid="1c118ae:12a0fb40ae7:-7fec" x="62" y="224"/>
+<table-figure refid="1c118ae:12a0fb40ae7:-7f47" x="316" y="469"/>
+<table-figure refid="60edad:12a347962fd:-7fec" x="428" y="72"/>
+</diagram>
+</clay-model>

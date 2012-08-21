@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<smns:sample xmlns:smns="http://www.nsdic.org/ServiceMetrics" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nsdic.org/ServiceMetrics ServiceMetrics.xsd ">
+  <smns:metric public="true">
+    <smns:name>smns:name</smns:name>
+    <smns:value>smns:value</smns:value>
+  </smns:metric>
+  <smns:service>
+    <smns:sponsor>smns:sponsor</smns:sponsor>
+    <smns:instance>smns:instance</smns:instance>
+    <smns:service>smns:service</smns:service>
+  </smns:service>
+  <smns:agent>
+    <smns:host>smns:host</smns:host>
+    <smns:sessionid>smns:sessionid</smns:sessionid>
+    <smns:ipaddress>smns:ipaddress</smns:ipaddress>
+    <smns:useragent>smns:useragent</smns:useragent>
+  </smns:agent>
+  <smns:entryTime>2001-12-31T12:00:00</smns:entryTime>
+</smns:sample>

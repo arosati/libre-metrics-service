@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.nsdic.org/ServiceMetrics"
+	elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:smns="http://www.nsdic.org/ServiceMetrics">
+	<element name="sample">
+		<complexType>
+			<sequence>
+				<element name="metric" type="smns:metric" minOccurs="1"
+                    maxOccurs="unbounded"></element>                
+				<element name="service" type="smns:service" minOccurs="0"
+					maxOccurs="1"></element>
+				<element name="agent" type="smns:agent" minOccurs="0"
+                    maxOccurs="1"></element>
+				<element name="entryTime" type="dateTime" minOccurs="0"
+                    maxOccurs="1"></element>
+			</sequence>
+
+		</complexType>
+	</element>
+
+	<complexType name="service">
+	   <sequence>
+	     <element name="sponsor" type="string" minOccurs="0"
+             maxOccurs="1"></element>
+         <element name="instance" type="string" minOccurs="0"
+             maxOccurs="1"></element>
+         <element name="service" type="string" minOccurs="0"
+             maxOccurs="1"></element>
+       </sequence>
+	</complexType>
+
+	<complexType name="metric">
+		<sequence>
+			<element name="name" type="string"></element>
+			<element name="value" type="string"></element>
+		</sequence>
+		<attribute name="public" type="boolean" default="true"></attribute>
+	</complexType>
+
+	<complexType name="agent">
+		<sequence>
+		    <element name="host" type="string"></element>
+			<element name="sessionid" type="string"></element>
+			<element name="ipaddress" type="string"></element>
+			<element name="useragent" type="string"></element>
+		</sequence>
+	</complexType>
+
+
+</schema>
