@@ -5,7 +5,7 @@ This project is being released as partial fullfillment of NSF award number ARC
 0946625 and NASA award number NNX10AE07A.  This is non-working software and has
 not been previously distributed.  All of the code references to internal
 networks and servers have been removed throughout the project.  Any potential
-user will have to modify the source for their environemnt in order to use this
+user will have to modify the source for their environment in order to use this
 code.  License information is provided in the LICENSE.txt file.
 
 ## About
